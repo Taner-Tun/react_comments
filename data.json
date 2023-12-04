@@ -1,0 +1,63 @@
+{
+  "currentUser": {
+    "image": { 
+      "jpg": "./images/avatars/tan.jpg"
+    },
+    "username": "t_tun"
+  },
+  "comments": [
+    {
+      "id": 1,
+      "content": "Hello Pappa",
+      "createdAt": "1 day ago",
+      "score": 12,
+      "user": {
+        "image": { 
+          "jpg": "./images/avatars/tan.jpg"
+        },
+        "username": "Emircik"
+      },
+      "replies": []
+    },
+    {
+      "id": 2,
+      "content": "Hello Pappa",
+      "createdAt": "1 day ago",
+      "score": 5,
+      "user": {
+        "image": { 
+          "jpg": "./images/avatars/tan.jpg"
+        },
+        "username": "Beluncik"
+      },
+      "replies": [
+        {
+          "id": 3,
+          "content": "Hello Pappa",
+          "createdAt": "1 day ago",
+          "score": 4,
+          "replyingTo": "t_tun",
+          "user": {
+            "image": { 
+              "jpg": "./images/avatars/tan.jpg"
+            },
+            "username": "Eko"
+          }
+        },
+        {
+          "id": 4,
+          "content": "Hello Pappa",
+          "createdAt": "1 day ago",
+          "score": 2,
+          "replyingTo": "t_tun",
+          "user": {
+            "image": { 
+              "jpg": "./images/avatars/tan.jpg"
+            },
+            "username": "Figo"
+          }
+        }
+      ]
+    }
+  ]
+}
