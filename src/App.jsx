@@ -4,6 +4,7 @@ import "./styles/global.scss";
 
 import { NewCommentEditor } from "./components/new-comment-editor";
 import { Conversation } from "./components/conversation";
+import { Comment } from "./components/comment";
 
 
 function App() {
@@ -14,7 +15,8 @@ function App() {
       <div className="container">
         <p>Container</p>
         <NewCommentEditor />
-      <Conversation />
+        <Conversation />
+        <Comment />
       </div>
       
     </>
