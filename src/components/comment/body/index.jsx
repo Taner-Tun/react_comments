@@ -1,4 +1,4 @@
-
+import { useComment } from "../useComment";
 
 function Body () {
     return(

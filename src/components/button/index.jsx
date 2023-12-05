@@ -1,14 +1,20 @@
 
-
-
+import PropTypes from "prop-types";
+import { clsx } from "clsx";
 import styles from "./styles.module.scss";
 
-function Button( {children} ) {
+function Button({ variant = "ghost", children, ...props}) {
   return (
-    <button className={(styles.button)}>
+    <button className={clsx(styles.button, styles[variant])} {...props}>
       {children}
     </button>
   );
 }
+
+// Prop types validation
+Button.propTypes = {
+  variant: PropTypes.string,
+  children: PropTypes.node.isRequired,
+};
 
 export { Button };

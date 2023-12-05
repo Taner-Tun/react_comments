@@ -1,4 +1,5 @@
 import  { useContext, createContext } from "react";
+import PropTypes from "prop-types";
 
 const CommentContext = createContext();
 
@@ -19,5 +20,9 @@ function useComment() {
 
   return context; 
 }
+CommentContextProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+  data: PropTypes.object.isRequired, // Update the type according to the shape of your data
+};
 
 export { CommentContextProvider, useComment };
