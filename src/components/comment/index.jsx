@@ -6,8 +6,14 @@ import { useComment, CommentContextProvider} from "./useComment";
 import { NewCommentEditor } from "../new-comment-editor";
 
 
+
 function Comment () {
-  const { currentUser, comment: {replies} } = useComment();
+  const { isReplying, currentUser, comment, onNewReply} = useComment();
+
+   if(!comment) {
+    return null;
+   }
+
 
   return (
     <>
@@ -18,16 +24,23 @@ function Comment () {
           <Body />
         </div>
       </div>
-      {replies?.length > 0 && (
+      {comment?.replies?.length > 0 && (
         <div className={styles.replies}>
-          {replies.map(reply => (
+          {comment.replies.map(reply => (
             <CommentContextProvider key={reply.id} data={{ comment: reply, currentUser }}>
               <Comment />
             </CommentContextProvider>
           ))}
         </div>
       )}
-      <NewCommentEditor image={currentUser.image.jpg} alt={currentUser.username} />
+      {isReplying && (
+    <NewCommentEditor 
+      onClick={onNewReply}
+      isReply
+      image={currentUser.image.jpg}
+      alt={currentUser.username} 
+      />
+     )}
     </>
   );
 }

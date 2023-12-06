@@ -1,20 +1,38 @@
 import { Comment } from "../comment";
 import { CommentContextProvider } from "../comment/useComment";
 import { NewCommentEditor } from "../new-comment-editor";
+import { useState } from "react";
 
 import styles from "./styles.module.scss";
 
 import  Data  from "../../../data.json";
 
 function Conversation () {
+  const[comments, setComments] = useState(Data.comments)
+
+  const handleNewComment = (newComment) => {
+      setComments([
+        ...comments,
+        {
+            id: Math.floor(Math.random()*100),
+            content: newComment,
+            createdAt: new Date().toLocaleDateString(),
+            score: 0,
+            user: Data.currentUser,
+          },
+      ])
+  }
     return(
          <div className={styles.ConversationWrapper}>
-        {Data.comments.map((comment) => (
+        {comments.map((comment) => (
          <CommentContextProvider key={comment.id} data={{comment, currentUser: Data.currentUser}}>
            <Comment /> 
            </CommentContextProvider>  
            ))}
-        <NewCommentEditor image={Data.currentUser.image.jpg} alt={Data.currentUser.username} />
+        <NewCommentEditor
+         onClick={handleNewComment}
+         image={Data.currentUser.image.jpg}
+         alt={Data.currentUser.username} />
         </div>
         );
 }

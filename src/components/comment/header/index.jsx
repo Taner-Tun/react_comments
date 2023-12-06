@@ -5,7 +5,11 @@ import { useComment } from "../useComment";
 import styles from "./styles.module.scss";
 
 function Header () {
+  
   const {
+    onEdit,
+    onDelete,
+    onReply,
     currentUser,
     comment: {
       createdAt,
@@ -26,17 +30,17 @@ function Header () {
           <div className={styles.actionButtons}>
           {ownedByCurrentUser ? (
           <>
-            <Button variant="warning">
+            <Button variant="warning" onClick={onDelete}>
               <img src="./images/icon-delete.svg" aria-hidden="true" alt="Delete" />
               Delete
             </Button>
-            <Button>
+            <Button onClick={onEdit}>
               <img src="./images/icon-edit.svg" aria-hidden="true" alt="Edit" />
               Edit
             </Button>
           </>
         ) : (
-          <Button>
+          <Button onClick={onReply}>
             <img src="./images/icon-reply.svg" aria-hidden="true" alt="Reply" />
             Reply
           </Button>
