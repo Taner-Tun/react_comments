@@ -1,11 +1,18 @@
 import { useComment } from "../useComment";
 
-function Body () {
-    return(
+import styles from "./styles.module.scss";
+
+function Body() {
+    const { comment: { content, replyingTo } } = useComment();
+    return (
         <div>
-            Body
-        </div>
-    )
+            <p className={styles.content}>
+                {replyingTo && (
+               <span className={styles.replyingTo}>@{replyingTo}&nbsp;</span>)}
+            {content}
+        </p>
+        </div >
+    );
 }
 
 export { Body };

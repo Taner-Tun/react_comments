@@ -17,3 +17,11 @@
   .warning {
     color: var(--soft-red);
   }
+
+  .primary {
+    background-color: var(--moderate-blue);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 4px;
+    text-transform: uppercase;
+  }

@@ -18,7 +18,7 @@ function Header () {
     return(
        <div className={styles.headerWrapper}>
          <div className={styles.imageWrapper}>
-           <img src={image.jpg} alt="username" />
+           <img src={image.jpg} alt={username} />
           </div> 
           <h3 className={styles.username}>{username}</h3>
           {ownedByCurrentUser && <span className={styles.youIndicator}>you</span>}

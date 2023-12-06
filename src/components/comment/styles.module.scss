@@ -13,3 +13,22 @@
     gap: 8px;
     flex: 1;
 }
+
+.replies {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-left: 72px;
+    position: relative;
+
+    &::before {
+    position: absolute;
+    left: -39px;
+    top: 0;
+    bottom: 0;
+    content: "";
+    width: 3px;
+    background-color: var(--light-gray);
+    border-radius: 4px;
+    }
+}

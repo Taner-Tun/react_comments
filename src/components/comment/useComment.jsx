@@ -22,7 +22,7 @@ function useComment() {
 }
 CommentContextProvider.propTypes = {
   children: PropTypes.node.isRequired,
-  data: PropTypes.object.isRequired, // Update the type according to the shape of your data
+  data: PropTypes.object.isRequired,
 };
 
 export { CommentContextProvider, useComment };

@@ -1,20 +1,35 @@
 import { Reactions } from "./reactions"; 
 import { Header } from "./header";
 import { Body } from "./body";
-
 import styles from "./styles.module.scss";
+import { useComment, CommentContextProvider} from "./useComment";
+import { NewCommentEditor } from "../new-comment-editor";
 
 
 function Comment () {
-    return(
-    <div className={styles.commentWrapper}>
+  const { currentUser, comment: {replies} } = useComment();
+
+  return (
+    <>
+      <div className={styles.commentWrapper}>
         <Reactions />
-         <div className={styles.commentContentArea}>
-           <Header />
-           <Body />
-         </div>
-    </div>
-    )
+        <div className={styles.commentContentArea}>
+          <Header />
+          <Body />
+        </div>
+      </div>
+      {replies?.length > 0 && (
+        <div className={styles.replies}>
+          {replies.map(reply => (
+            <CommentContextProvider key={reply.id} data={{ comment: reply, currentUser }}>
+              <Comment />
+            </CommentContextProvider>
+          ))}
+        </div>
+      )}
+      <NewCommentEditor image={currentUser.image.jpg} alt={currentUser.username} />
+    </>
+  );
 }
 
 export { Comment };
