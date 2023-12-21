@@ -5,12 +5,14 @@ import { useComment } from "../useComment";
 
 function Reactions() {
    const {
+    onPositiveReaction,
+    onNegativeReaction,
     comment: { score },
    } = useComment();
 
   return (
     <div className={styles.reactionsWrapper}>
-      <Button
+      <Button onClick={onPositiveReaction}
         className={styles.reactionButton}
         aria-labelledby="Positive reaction button"
         //onClick={onPositiveReaction}
@@ -18,7 +20,7 @@ function Reactions() {
         <img src="./images/icon-plus.svg" aria-hidden="true" />
       </Button>
       <p>{score}</p>
-      <Button
+      <Button onClick={onNegativeReaction}
         className={styles.reactionButton}
         aria-labelledby="Negative reaction button"
        // onClick={onNegativeReaction}

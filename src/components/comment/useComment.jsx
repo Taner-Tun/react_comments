@@ -48,7 +48,23 @@ function CommentContextProvider({ children, data }) {
     onReply();
   }
 
+  const onPositiveReaction = () => {
+    setComment({
+      ...comment,
+      score:comment.score + 1,
+    })
+  }
+
+  const onNegativeReaction = () => {
+    setComment({
+      ...comment,
+      score:comment.score - 1,
+    })
+  }
+
   const contextData = useMemo (() => ({
+    onPositiveReaction,
+    onNegativeReaction,
     onNewReply,
     onUpdate,
     isEditing,
